@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using WebApplication2.Data;
+using WebApplication2.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-// builder.Services.AddDbContext<ApplicationContext>(
-//     options => options.UseSqlServer("Name=ConnectionStrings:Default"));
+ builder.Services.AddDbContext<ApplicationContext>(
+     options => options.UseSqlServer("Name=ConnectionStrings:Default"));
 builder.Services.AddControllers();
-// builder.Services.AddScoped<DbService>();
+builder.Services.AddScoped<DbService>();
 
 
 
