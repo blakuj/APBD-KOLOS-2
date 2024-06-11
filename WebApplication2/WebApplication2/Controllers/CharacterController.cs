@@ -44,6 +44,7 @@ public class CharacterController : ControllerBase
             return BadRequest("Sum of weigths is above character maxweigthLimit");
         }
 
+        await _dbService.AddItemsToCharacter(IDs,id);
         return Ok("Items Added");
     }
 }
